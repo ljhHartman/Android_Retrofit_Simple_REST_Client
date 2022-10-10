@@ -1,6 +1,6 @@
-package com.example.reciperetrofit2.repository;
+package com.project.reciperetrofit.repository;
 
-import com.example.reciperetrofit2.model.Person;
+import com.project.reciperetrofit.model.Person;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

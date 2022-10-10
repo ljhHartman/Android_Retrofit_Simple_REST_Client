@@ -1,4 +1,4 @@
-package com.example.reciperetrofit2;
+package com.test.unitTest;
 
 import org.junit.Test;
 

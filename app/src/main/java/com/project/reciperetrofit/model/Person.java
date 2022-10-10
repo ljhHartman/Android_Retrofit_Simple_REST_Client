@@ -1,4 +1,4 @@
-package com.example.reciperetrofit2.model;
+package com.project.reciperetrofit.model;
 
 public class Person {
 

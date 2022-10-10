@@ -1,4 +1,4 @@
-package com.example.reciperetrofit2;
+package com.project.reciperetrofit;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,8 +10,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.reciperetrofit2.model.Person;
-import com.example.reciperetrofit2.repository.RepositoryPerson;
+import com.example.reciperetrofit.R;
+import com.project.reciperetrofit.model.Person;
+import com.project.reciperetrofit.repository.RepositoryPerson;
 
 import retrofit2.Call;
 import retrofit2.Callback;
