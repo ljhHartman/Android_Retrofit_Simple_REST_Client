@@ -2,13 +2,21 @@ package com.project.reciperetrofit.model;
 
 public class Person {
 
+    // Class Variables
     private String firstName;
     private String lastName;
 
+
+    
+    // Constructor
     public Person(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
+
+
+
+    // Getters & Setters
 
     public String getFirstName() {
         return firstName;

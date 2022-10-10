@@ -17,8 +17,40 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ControllerPerson {
 
+    // GET ALL ACTION
+    public static void GetData(TextView ResponseView) {
+        Log.i("info", "-- GetData --");
 
-    // POST ACTION
+        // Build Retrofit : to send data in json format
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://10.0.2.2:8080/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        // Init Repository Class
+        RepositoryPerson repositoryPerson = retrofit.create(RepositoryPerson.class);
+
+        // Init Repository Get Method
+        Call<Object> call = repositoryPerson.getPersons();
+
+
+        call.enqueue(new Callback<Object>() {
+
+            @Override
+            public void onResponse(Call<Object> call, Response<Object> response) {
+                ResponseView.setText(response.body().toString());
+            }
+
+            @Override
+            public void onFailure(Call<Object> call, Throwable t) {
+                ResponseView.setText("Api Call Failed" + t.getMessage());
+            }
+        });
+    }
+
+
+
+            // POST ACTION
     public static void PostData(TextView firstNameEdt, TextView lastNameEdt,TextView ResponseView) {
         Log.i("info", "-- postDataAction --");
 

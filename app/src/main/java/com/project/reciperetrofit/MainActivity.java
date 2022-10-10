@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     // Declare View Elements
     private EditText txtFirstName, txtLastName;
     private Button btnPost;
+    private Button btnGet;
     private TextView lblResponse;
 
     @Override
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         txtFirstName = findViewById(R.id.txtFirstName);
         txtLastName = findViewById(R.id.txtLastName);
         btnPost = findViewById(R.id.btnPost);
+        btnGet = findViewById(R.id.btnGet);
         lblResponse = findViewById(R.id.lblResponse);
 
 
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // EXECUTE : BUTTON ACTION
-                Log.i("info", "Button is clicked");
+                Log.i("info", "Post Button is clicked");
 
                 // Validating if the text fields are empty or not.
                 if (txtFirstName.getText().toString().isEmpty() && txtLastName.getText().toString().isEmpty()) {
@@ -53,7 +55,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // BUTTON ONCLICK : GET ACTION
+        btnGet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // EXECUTE : BUTTON ACTION
+                Log.i("info", "Get Button is clicked");
 
+                // EXECUTE : POST ACTION
+                Log.i("info", "Execute Action");
+                ControllerPerson.GetData(lblResponse);
+                }
+        });
 
 
 

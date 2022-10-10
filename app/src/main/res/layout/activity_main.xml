@@ -36,6 +36,14 @@
     <!--button for getting data-->
 
     <!--text view for displaying our API response-->
+    <Button
+        android:id="@+id/btnGet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Get all Persons"
+        android:textAllCaps="false" />
+
     <TextView
         android:id="@+id/lblResponse"
         android:layout_width="match_parent"
