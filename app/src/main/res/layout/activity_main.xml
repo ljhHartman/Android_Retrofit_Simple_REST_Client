@@ -9,7 +9,7 @@
 
     <!--edit text field for adding first name-->
     <EditText
-        android:id="@+id/idEdtFirstName"
+        android:id="@+id/txtFirstName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -18,7 +18,7 @@
 
     <!--edit text field for adding last name-->
     <EditText
-        android:id="@+id/idEdtLastName"
+        android:id="@+id/txtLastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -26,7 +26,7 @@
         android:hint="Enter your Last Name" />
     <!--button for adding data-->
     <Button
-        android:id="@+id/idBtnPost"
+        android:id="@+id/btnPost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
@@ -34,17 +34,10 @@
         android:textAllCaps="false" />
 
     <!--button for getting data-->
-    <Button
-        android:id="@+id/idBtnGet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="Get All Persons"
-        android:textAllCaps="false" />
 
     <!--text view for displaying our API response-->
     <TextView
-        android:id="@+id/idTVResponse"
+        android:id="@+id/lblResponse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
