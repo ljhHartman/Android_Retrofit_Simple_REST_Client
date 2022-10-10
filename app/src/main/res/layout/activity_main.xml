@@ -24,11 +24,6 @@
         android:layout_margin="10dp"
         android:layout_marginTop="40dp"
         android:hint="Enter your Last Name" />
-
-
-
-
-
     <!--button for adding data-->
     <Button
         android:id="@+id/idBtnPost"
@@ -36,6 +31,15 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:text="Save New Person"
+        android:textAllCaps="false" />
+
+    <!--button for getting data-->
+    <Button
+        android:id="@+id/idBtnGet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Get All Persons"
         android:textAllCaps="false" />
 
     <!--text view for displaying our API response-->
@@ -56,5 +60,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:visibility="gone" />
+
+
+
 
 </LinearLayout>

@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.reciperetrofit.R;
+import com.project.reciperetrofit.controller.ControllerPerson;
 import com.project.reciperetrofit.model.Person;
 import com.project.reciperetrofit.repository.RepositoryPerson;
 
@@ -20,7 +21,6 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-// test commmit
 public class MainActivity extends AppCompatActivity {
 
     private EditText firstNameEdt, lastNameEdt;
@@ -49,11 +49,13 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Please enter both the values", Toast.LENGTH_SHORT).show();
                     return;
                 }
+
                 // calling a method to post the data and passing our name and job.
                 postData(firstNameEdt.getText().toString(), lastNameEdt.getText().toString());
             }
         });
     }
+
 
     private void postData(String firstName, String lastName) {
 
@@ -114,4 +116,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+
 }
