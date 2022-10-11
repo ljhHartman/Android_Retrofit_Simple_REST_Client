@@ -16,7 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ControllerPerson {
 
     // GET By Id ALL ACTION
-    public static void DelAll() {
+    public static void DelAll(TextView ResponseView) {
         Log.i("info", "-- Del All --");
 
         // Build Retrofit : to send data in json format
@@ -30,7 +30,30 @@ public class ControllerPerson {
 
         // Init Repository Get Method
         Call<Void> call = repositoryPerson.deleteAll();
+
+        call.enqueue(new Callback<Void>() {
+
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+
+                // Build & Set Text for the ResponseView
+                String responseString = "Response Code : " + response.code()
+                        + "\n Deleted All";
+                ResponseView.setText(responseString);
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                // Set Error to TextView
+                ResponseView.setText("Api Call Failed" + t.getMessage());
+            }
+        });
     }
+
+
+
+
+
 
 
     // GET By Id ALL ACTION
@@ -81,16 +104,7 @@ public class ControllerPerson {
 
 
 
-
-
-
-
-
-
-
-
-
-            // GET By Id ALL ACTION
+    // GET By Id ALL ACTION
     public static void GetById(EditText input, TextView ResponseView) {
         Log.i("info", "-- GetById --");
 
@@ -141,6 +155,8 @@ public class ControllerPerson {
         });
     }
 
+
+
     // GET ALL ACTION
     public static void GetData(TextView ResponseView) {
         Log.i("info", "-- GetData --");
@@ -175,6 +191,8 @@ public class ControllerPerson {
             }
         });
     }
+
+
 
     // POST ACTION
     public static void PostData(TextView firstNameEdt, TextView lastNameEdt,TextView ResponseView) {

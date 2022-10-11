@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // EXECUTE : BUTTON ACTION
                 Log.i("info", "Delete Button is clicked");
-                ControllerPerson.DelAll();
+                ControllerPerson.DelAll(lblResponse);
             }
         });
 
