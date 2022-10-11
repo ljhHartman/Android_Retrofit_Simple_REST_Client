@@ -1,11 +1,9 @@
 package com.project.reciperetrofit.controller;
 
 import android.util.Log;
-import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.project.reciperetrofit.MainActivity;
 import com.project.reciperetrofit.model.Person;
 import com.project.reciperetrofit.repository.RepositoryPerson;
 
@@ -16,6 +14,54 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ControllerPerson {
+
+    // GET By Id ALL ACTION
+    public static void GetById(EditText input, TextView ResponseView) {
+        Log.i("info", "-- GetById --");
+
+        // Build Retrofit : to send data in json format
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://10.0.2.2:8080/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        // Init Repository Class
+        RepositoryPerson repositoryPerson = retrofit.create(RepositoryPerson.class);
+
+        // Init Repository Get Method
+        Log.i("info", "Check Input Value: " +String.valueOf(input.getText()));
+        Long inputL = Long.parseLong(String.valueOf(input.getText()));
+        Call<Object> call = repositoryPerson.getPersonById(inputL);
+
+
+        call.enqueue(new Callback<Object>() {
+
+            @Override
+            public void onResponse(Call<Object> call, Response<Object> response) {
+
+                // Set TextView
+                ResponseView.setText(response.body().toString());
+            }
+
+            @Override
+            public void onFailure(Call<Object> call, Throwable t) {
+
+                // Set Error to TextView
+                ResponseView.setText("Api Call Failed" + t.getMessage());
+            }
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     // GET ALL ACTION
     public static void GetData(TextView ResponseView) {
@@ -38,11 +84,15 @@ public class ControllerPerson {
 
             @Override
             public void onResponse(Call<Object> call, Response<Object> response) {
+
+                // Set TextView
                 ResponseView.setText(response.body().toString());
             }
 
             @Override
             public void onFailure(Call<Object> call, Throwable t) {
+
+                // Set Error to TextView
                 ResponseView.setText("Api Call Failed" + t.getMessage());
             }
         });
@@ -50,7 +100,7 @@ public class ControllerPerson {
 
 
 
-            // POST ACTION
+    // POST ACTION
     public static void PostData(TextView firstNameEdt, TextView lastNameEdt,TextView ResponseView) {
         Log.i("info", "-- postDataAction --");
 

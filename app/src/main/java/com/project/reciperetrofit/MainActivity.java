@@ -17,10 +17,10 @@ import com.project.reciperetrofit.controller.ControllerPerson;
 public class MainActivity extends AppCompatActivity {
 
     // Declare View Elements
-    private EditText txtFirstName, txtLastName;
-    private Button btnPost;
-    private Button btnGet;
+    private EditText txtFirstName, txtLastName, txtId;
+    private Button btnPost, btnGet, btnGetById;
     private TextView lblResponse;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         txtLastName = findViewById(R.id.txtLastName);
         btnPost = findViewById(R.id.btnPost);
         btnGet = findViewById(R.id.btnGet);
+        btnGetById = findViewById(R.id.btnGetById);
+        txtId = findViewById(R.id.txtId);
         lblResponse = findViewById(R.id.lblResponse);
 
 
@@ -55,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
         // BUTTON ONCLICK : GET ACTION
         btnGet.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +70,24 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("info", "Execute Action");
                 ControllerPerson.GetData(lblResponse);
                 }
+        });
+
+
+        btnGetById.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // EXECUTE : BUTTON ACTION
+                Log.i("info", "Get By Id Button is clicked");
+
+                // Validating if the text fields are empty or not.
+                if (txtId.getText().toString().isEmpty()) {
+                    Log.i("info", "Input boxes are empty");
+                } else {
+                    // EXECUTE : POST ACTION
+                    Log.i("info", "Execute Action");
+                    ControllerPerson.GetById(txtId, lblResponse);
+                }
+            }
         });
 
 

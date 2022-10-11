@@ -8,6 +8,14 @@
     tools:context="com.project.reciperetrofit.MainActivity">
 
     <!--edit text field for adding first name-->
+    <Button
+        android:id="@+id/btnGet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Get all Persons"
+        android:textAllCaps="false" />
+
     <EditText
         android:id="@+id/txtFirstName"
         android:layout_width="match_parent"
@@ -17,6 +25,7 @@
         android:hint="Enter your First Name" />
 
     <!--edit text field for adding last name-->
+
     <EditText
         android:id="@+id/txtLastName"
         android:layout_width="match_parent"
@@ -36,12 +45,21 @@
     <!--button for getting data-->
 
     <!--text view for displaying our API response-->
+
+    <EditText
+        android:id="@+id/txtId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="40dp"
+        android:hint="Enter Id" />
+
     <Button
-        android:id="@+id/btnGet"
+        android:id="@+id/btnGetById"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:text="Get all Persons"
+        android:text="Get by Id"
         android:textAllCaps="false" />
 
     <TextView
