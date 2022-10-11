@@ -13,7 +13,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:text="Get all Persons"
+        android:text="Get All"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btnDelAll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Delete All"
         android:textAllCaps="false" />
 
     <EditText
@@ -22,7 +30,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_marginTop="40dp"
-        android:hint="Enter your First Name" />
+        android:hint="Enter your First Name"
+        android:minHeight="48dp" />
 
     <!--edit text field for adding last name-->
 
@@ -32,14 +41,15 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_marginTop="40dp"
-        android:hint="Enter your Last Name" />
+        android:hint="Enter your Last Name"
+        android:minHeight="48dp" />
     <!--button for adding data-->
     <Button
         android:id="@+id/btnPost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:text="Save New Person"
+        android:text="Save New"
         android:textAllCaps="false" />
 
     <!--button for getting data-->
@@ -52,7 +62,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_marginTop="40dp"
-        android:hint="Enter Id" />
+        android:hint="Enter Id"
+        android:minHeight="48dp" />
 
     <Button
         android:id="@+id/btnGetById"
@@ -60,6 +71,14 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:text="Get by Id"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btnDelById"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Delete by Id"
         android:textAllCaps="false" />
 
     <TextView

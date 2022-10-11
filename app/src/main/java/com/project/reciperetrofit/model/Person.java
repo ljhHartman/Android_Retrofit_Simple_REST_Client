@@ -2,7 +2,10 @@ package com.project.reciperetrofit.model;
 
 public class Person {
 
+
+
     // Class Variables
+
     private Long id;
     private String firstName;
     private String lastName;
@@ -10,6 +13,7 @@ public class Person {
 
     
     // Constructor
+
     public Person(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -18,6 +22,10 @@ public class Person {
 
 
     // Getters & Setters
+
+    public Long getId() {
+        return id;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -35,7 +43,6 @@ public class Person {
         this.lastName = lastName;
     }
 
-    public Long getId() {
-        return id;
-    }
+
+
 }

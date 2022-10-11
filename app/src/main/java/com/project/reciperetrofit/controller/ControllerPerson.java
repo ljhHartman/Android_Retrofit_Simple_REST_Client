@@ -16,6 +16,81 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ControllerPerson {
 
     // GET By Id ALL ACTION
+    public static void DelAll() {
+        Log.i("info", "-- Del All --");
+
+        // Build Retrofit : to send data in json format
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://10.0.2.2:8080/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        // Init Repository Class
+        RepositoryPerson repositoryPerson = retrofit.create(RepositoryPerson.class);
+
+        // Init Repository Get Method
+        Call<Void> call = repositoryPerson.deleteAll();
+    }
+
+
+    // GET By Id ALL ACTION
+    public static void DelById(EditText input, TextView ResponseView) {
+        Log.i("info", "-- DelById --");
+
+        // Build Retrofit : to send data in json format
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://10.0.2.2:8080/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        // Init Repository Class
+        RepositoryPerson repositoryPerson = retrofit.create(RepositoryPerson.class);
+
+        // Init Repository Get Method
+        Log.i("info", "Check Input Value: " +String.valueOf(input.getText()));
+        Long inputL = Long.parseLong(String.valueOf(input.getText()));
+        Call<Void> call = repositoryPerson.delPersonById(inputL);
+
+
+        call.enqueue(new Callback<Void>() {
+
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+
+                // Set Input Box to Empty again
+                input.setText("");
+
+                // we are getting response from our body
+                // and passing it to our modal class.
+                Void responseFromAPI = response.body();
+
+
+                // Build & Set Text for the ResponseView
+                String responseString = "Response Code : " + response.code()
+                        + "\n Deleted";
+                ResponseView.setText(responseString);
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                // Set Error to TextView
+                ResponseView.setText("Api Call Failed" + t.getMessage());
+            }
+        });
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+            // GET By Id ALL ACTION
     public static void GetById(EditText input, TextView ResponseView) {
         Log.i("info", "-- GetById --");
 
@@ -48,7 +123,7 @@ public class ControllerPerson {
 
                 // Build & Set Text for the ResponseView
                 String responseString = "Response Code : " + response.code()
-                        + "\nId : " + responseFromAPI.getId() + "\n"
+                        + "\nId : " + responseFromAPI.getId()
                         + "\nFirst Name : " + responseFromAPI.getFirstName() + "\n"
                         + "Last Name : " + responseFromAPI.getLastName();
                 ResponseView.setText(responseString);

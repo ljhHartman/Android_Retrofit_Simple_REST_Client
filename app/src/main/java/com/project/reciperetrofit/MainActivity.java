@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Declare View Elements
     private EditText txtFirstName, txtLastName, txtId;
-    private Button btnPost, btnGet, btnGetById;
+    private Button btnPost, btnGet, btnGetById, btnDelById, btnDelAll;
     private TextView lblResponse;
 
 
@@ -34,9 +34,10 @@ public class MainActivity extends AppCompatActivity {
         btnPost = findViewById(R.id.btnPost);
         btnGet = findViewById(R.id.btnGet);
         btnGetById = findViewById(R.id.btnGetById);
+        btnDelById = findViewById(R.id.btnDelById);
+        btnDelAll = findViewById(R.id.btnDelAll);
         txtId = findViewById(R.id.txtId);
         lblResponse = findViewById(R.id.lblResponse);
-
 
 
         // BUTTON ONCLICK : POST ACTION
@@ -58,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
         // BUTTON ONCLICK : GET ACTION
         btnGet.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,10 +69,11 @@ public class MainActivity extends AppCompatActivity {
                 // EXECUTE : POST ACTION
                 Log.i("info", "Execute Action");
                 ControllerPerson.GetData(lblResponse);
-                }
+            }
         });
 
 
+        // BUTTON ONCLICK : GET BY ID ACTION
         btnGetById.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,6 +90,38 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+
+        // BUTTON ONCLICK : Del BY ID ACTION
+        btnDelById.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // EXECUTE : BUTTON ACTION
+                Log.i("info", "Del By Id Button is clicked");
+
+                // Validating if the text fields are empty or not.
+                if (txtId.getText().toString().isEmpty()) {
+                    Log.i("info", "Input boxes are empty");
+                } else {
+                    // EXECUTE : POST ACTION
+                    Log.i("info", "Execute Action");
+                    ControllerPerson.DelById(txtId, lblResponse);
+                }
+            }
+        });
+
+
+        // BUTTON ONCLICK : DEL ALL ACTION
+        btnDelAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // EXECUTE : BUTTON ACTION
+                Log.i("info", "Delete Button is clicked");
+                ControllerPerson.DelAll();
+            }
+        });
+
 
 
 
