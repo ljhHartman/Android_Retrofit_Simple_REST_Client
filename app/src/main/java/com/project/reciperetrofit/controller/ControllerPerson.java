@@ -31,37 +31,40 @@ public class ControllerPerson {
         // Init Repository Get Method
         Log.i("info", "Check Input Value: " +String.valueOf(input.getText()));
         Long inputL = Long.parseLong(String.valueOf(input.getText()));
-        Call<Object> call = repositoryPerson.getPersonById(inputL);
+        Call<Person> call = repositoryPerson.getPersonById(inputL);
 
 
-        call.enqueue(new Callback<Object>() {
+        call.enqueue(new Callback<Person>() {
 
             @Override
-            public void onResponse(Call<Object> call, Response<Object> response) {
+            public void onResponse(Call<Person> call, Response<Person> response) {
 
-                // Set TextView
-                ResponseView.setText(response.body().toString());
+                // Set Input Box to Empty again
+                input.setText("");
+
+                // we are getting response from our body
+                // and passing it to our modal class.
+                Person responseFromAPI = response.body();
+
+                // Build & Set Text for the ResponseView
+                String responseString = "Response Code : " + response.code()
+                        + "\nId : " + responseFromAPI.getId() + "\n"
+                        + "\nFirst Name : " + responseFromAPI.getFirstName() + "\n"
+                        + "Last Name : " + responseFromAPI.getLastName();
+                ResponseView.setText(responseString);
             }
 
+
+
+
             @Override
-            public void onFailure(Call<Object> call, Throwable t) {
+            public void onFailure(Call<Person> call, Throwable t) {
 
                 // Set Error to TextView
                 ResponseView.setText("Api Call Failed" + t.getMessage());
             }
         });
     }
-
-
-
-
-
-
-
-
-
-
-
 
     // GET ALL ACTION
     public static void GetData(TextView ResponseView) {
@@ -97,8 +100,6 @@ public class ControllerPerson {
             }
         });
     }
-
-
 
     // POST ACTION
     public static void PostData(TextView firstNameEdt, TextView lastNameEdt,TextView ResponseView) {

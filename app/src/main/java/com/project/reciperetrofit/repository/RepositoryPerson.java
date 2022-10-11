@@ -17,7 +17,7 @@ public interface RepositoryPerson {
     Call<Object> getPersons();
 
     @GET("persons/{id}")
-    Call<Object> getPersonById(@Query("id") Long id);
+    Call<Person> getPersonById(@Query("id") Long id);
 
 
 }

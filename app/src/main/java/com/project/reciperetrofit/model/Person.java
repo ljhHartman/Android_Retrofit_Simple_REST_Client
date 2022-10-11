@@ -3,6 +3,7 @@ package com.project.reciperetrofit.model;
 public class Person {
 
     // Class Variables
+    private Long id;
     private String firstName;
     private String lastName;
 
@@ -32,5 +33,9 @@ public class Person {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
